@@ -376,7 +376,6 @@
 			}
 		}
 
-		/* Responsive styles */
 		@media (max-width: 576px) {
 			.container {
 				border-radius: 12px;
@@ -403,7 +402,6 @@
 			}
 		}
 
-		/* Success animation */
 		.success-animation {
 			display: none;
 			text-align: center;
@@ -487,7 +485,7 @@
 		</div>
 
 		<div class="form-container">
-			<!-- Step 1: Personal Information -->
+		
 			<div class="form-step active" id="step1">
 				<h2 class="step-title">Informações Pessoais</h2>
 
@@ -564,12 +562,12 @@
 				</div>
 
 				<div class="btn-container">
-					<div></div> <!-- Placeholder for alignment -->
+					<div></div> 
 					<button type="button" class="btn btn-next" id="btnNext1">Próximo</button>
 				</div>
 			</div>
 
-			<!-- Step 2: Address Information -->
+			
 			<div class="form-step" id="step2">
 				<h2 class="step-title">Endereço</h2>
 
@@ -674,7 +672,7 @@
 				</div>
 			</div>
 
-			<!-- Step 3: Account Information -->
+		
 			<div class="form-step" id="step3">
 				<h2 class="step-title">Segurança</h2>
 
@@ -731,7 +729,7 @@
 				</div>
 			</div>
 
-			<!-- Success Message -->
+			
 			<div class="success-animation" id="successMessage">
 				<div class="checkmark-circle">
 					<div class="background"></div>
@@ -754,7 +752,7 @@
 
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
-    // DOM Elements
+    
     const steps = document.querySelectorAll('.step');
     const formSteps = document.querySelectorAll('.form-step');
     const progress = document.getElementById('progress');
@@ -771,15 +769,13 @@
     const countdown = document.getElementById('countdown');
     const carAnimation = document.getElementById('carAnimation');
 
-    // Current step
     let currentStep = 1;
 
-    // Update progress
+ 
     const updateProgress = () => {
         const percent = ((currentStep - 1) / (steps.length - 1)) * 100;
         progress.style.width = percent + '%';
-        
-        // Update steps
+     
         steps.forEach((step, idx) => {
             if (idx + 1 < currentStep) {
                 step.classList.add('completed');
@@ -796,7 +792,7 @@
         });
     };
 
-    // Go to next step
+   
     const nextStep = () => {
         if (currentStep < steps.length) {
             formSteps[currentStep - 1].classList.remove('active');
@@ -807,7 +803,7 @@
         }
     };
 
-    // Go to previous step
+ 
     const prevStep = () => {
         if (currentStep > 1) {
             formSteps[currentStep - 1].classList.remove('active');
@@ -818,11 +814,11 @@
         }
     };
 
-    // Form validation
+ 
     const validateStep1 = () => {
         let isValid = true;
         
-        // Validate name
+   
         const nome = document.getElementById('nome').value.trim();
         if (nome === '') {
             showValidationError('nome', 'Campo obrigatório');
@@ -831,7 +827,7 @@
             hideValidationError('nome');
         }
         
-        // Validate lastname
+        
         const sobrenome = document.getElementById('sobrenome').value.trim();
         if (sobrenome === '') {
             showValidationError('sobrenome', 'Campo obrigatório');
@@ -840,7 +836,7 @@
             hideValidationError('sobrenome');
         }
         
-        // Validate CPF
+       
         const cpf = document.getElementById('cpf').value.trim();
         if (!validateCPF(cpf)) {
             showValidationError('cpf', 'CPF inválido');
@@ -849,7 +845,7 @@
             hideValidationError('cpf');
         }
         
-        // Validate email
+        
         const email = document.getElementById('email').value.trim();
         if (!validateEmail(email)) {
             showValidationError('email', 'Email inválido');
@@ -858,7 +854,7 @@
             hideValidationError('email');
         }
         
-        // Validate phone
+       
         const telefone = document.getElementById('telefone').value.trim();
         if (!validatePhone(telefone)) {
             showValidationError('telefone', 'Telefone inválido');
@@ -867,7 +863,7 @@
             hideValidationError('telefone');
         }
         
-        // Validate date of birth
+      
         const dataNascimento = document.getElementById('dataNascimento').value;
         if (dataNascimento === '') {
             showValidationError('dataNascimento', 'Campo obrigatório');
@@ -876,7 +872,7 @@
             hideValidationError('dataNascimento');
         }
         
-        // Validate gender
+        
         const sexo = document.getElementById('sexo').value;
         if (sexo === '') {
             showValidationError('sexo', 'Selecione uma opção');
@@ -891,7 +887,7 @@
     const validateStep2 = () => {
         let isValid = true;
         
-        // Validate CEP
+       
         const cep = document.getElementById('cep').value.trim();
         if (!validateCEP(cep)) {
             showValidationError('cep', 'CEP inválido');
@@ -900,7 +896,7 @@
             hideValidationError('cep');
         }
         
-        // Validate state
+        
         const estado = document.getElementById('estado').value;
         if (estado === '') {
             showValidationError('estado', 'Selecione um estado');
@@ -909,7 +905,7 @@
             hideValidationError('estado');
         }
         
-        // Validate city
+      
         const cidade = document.getElementById('cidade').value.trim();
         if (cidade === '') {
             showValidationError('cidade', 'Campo obrigatório');
@@ -918,7 +914,7 @@
             hideValidationError('cidade');
         }
         
-        // Validate street
+    
         const logradouro = document.getElementById('logradouro').value.trim();
         if (logradouro === '') {
             showValidationError('logradouro', 'Campo obrigatório');
@@ -926,8 +922,7 @@
         } else {
             hideValidationError('logradouro');
         }
-        
-        // Validate number
+       
         const numero = document.getElementById('numero').value.trim();
         if (numero === '') {
             showValidationError('numero', 'Campo obrigatório');
@@ -936,7 +931,7 @@
             hideValidationError('numero');
         }
         
-        // Validate neighborhood
+    
         const bairro = document.getElementById('bairro').value.trim();
         if (bairro === '') {
             showValidationError('bairro', 'Campo obrigatório');
@@ -951,7 +946,7 @@
     const validateStep3 = () => {
         let isValid = true;
         
-        // Validate password
+       
         const senha = document.getElementById('senha').value;
         if (senha.length < 8) {
             showValidationError('senha', 'A senha deve ter pelo menos 8 caracteres');
@@ -960,7 +955,7 @@
             hideValidationError('senha');
         }
         
-        // Validate confirm password
+        
         const confirmarSenha = document.getElementById('confirmarSenha').value;
         if (confirmarSenha !== senha) {
             showValidationError('confirmarSenha', 'As senhas não coincidem');
@@ -969,7 +964,7 @@
             hideValidationError('confirmarSenha');
         }
         
-        // Validate terms
+      
         const termos = document.getElementById('termos').checked;
         if (!termos) {
             showValidationError('termos', 'Você deve aceitar os termos para continuar');
@@ -981,7 +976,7 @@
         return isValid;
     };
 
-    // Validation helpers
+   
     const showValidationError = (fieldId, message) => {
         const validationMsg = document.getElementById(`${fieldId}-validation`);
         if (validationMsg) {
@@ -999,16 +994,14 @@
         document.getElementById(fieldId).classList.remove('error');
     };
 
-    // Validation functions
-   // Função corrigida para validação de CPF
+   
+
 const validateCPF = (cpf) => {
-    // Remove caracteres não numéricos
+  
     cpf = cpf.replace(/[^\d]+/g, '');
     
-    // Verifica se tem 11 dígitos e se não são todos iguais
     if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
-    
-    // Validação do primeiro dígito verificador
+
     let sum = 0;
     for (let i = 0; i < 9; i++) {
         sum += parseInt(cpf.charAt(i)) * (10 - i);
@@ -1018,7 +1011,7 @@ const validateCPF = (cpf) => {
     if (rev === 10 || rev === 11) rev = 0;
     if (rev !== parseInt(cpf.charAt(9))) return false;
     
-    // Validação do segundo dígito verificador
+
     sum = 0;
     for (let i = 0; i < 10; i++) {
         sum += parseInt(cpf.charAt(i)) * (11 - i);
@@ -1046,55 +1039,55 @@ const validateCPF = (cpf) => {
         return cep.length === 8;
     };
 
-    // Password strength meter
+
     const updatePasswordStrength = (password) => {
         let strength = 0;
         
-        // Length check
+       
         if (password.length >= 8) {
             strength += 1;
         }
         
-        // Lowercase letters check
+       
         if (/[a-z]/.test(password)) {
             strength += 1;
         }
         
-        // Uppercase letters check
+       
         if (/[A-Z]/.test(password)) {
             strength += 1;
         }
         
-        // Numbers check
+     
         if (/[0-9]/.test(password)) {
             strength += 1;
         }
         
-        // Special characters check
+       
         if (/[^A-Za-z0-9]/.test(password)) {
             strength += 1;
         }
         
-        // Update strength meter
+    
         passwordStrengthMeter.style.width = (strength * 20) + '%';
         
-        // Update color based on strength
+        
         if (strength < 2) {
-            passwordStrengthMeter.style.backgroundColor = '#ff3b30'; // Weak
+            passwordStrengthMeter.style.backgroundColor = '#ff3b30';
             passwordStrengthText.textContent = 'Senha fraca';
             passwordStrengthText.style.color = '#ff3b30';
         } else if (strength < 4) {
-            passwordStrengthMeter.style.backgroundColor = '#ff9500'; // Medium
+            passwordStrengthMeter.style.backgroundColor = '#ff9500'; 
             passwordStrengthText.textContent = 'Senha média';
             passwordStrengthText.style.color = '#ff9500';
         } else {
-            passwordStrengthMeter.style.backgroundColor = '#4cd964'; // Strong
+            passwordStrengthMeter.style.backgroundColor = '#4cd964'; 
             passwordStrengthText.textContent = 'Senha forte';
             passwordStrengthText.style.color = '#4cd964';
         }
     };
 
-    // Input formatters
+   
     const formatCPF = (cpf) => {
         cpf = cpf.replace(/\D/g, '');
         cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
@@ -1119,7 +1112,7 @@ const validateCPF = (cpf) => {
         return cep;
     };
 
-    // CEP lookup
+    
     const lookupCEP = () => {
         const cep = document.getElementById('cep').value.replace(/\D/g, '');
         
@@ -1147,7 +1140,7 @@ const validateCPF = (cpf) => {
             });
     };
 
-    // Event listeners
+
     btnNext1.addEventListener('click', () => {
         if (validateStep1()) {
             nextStep();
@@ -1165,16 +1158,16 @@ const validateCPF = (cpf) => {
 
     btnSubmit.addEventListener('click', () => {
         if (validateStep3()) {
-            // Hide form steps
+            
             formSteps.forEach(step => {
                 step.style.display = 'none';
             });
             
-            // Show success message
+         
             successMessage.style.display = 'block';
             carAnimation.style.opacity = '1';
             
-            // Countdown and redirect
+        
             let timeLeft = 5;
             const countdownInterval = setInterval(() => {
                 timeLeft--;
@@ -1182,10 +1175,7 @@ const validateCPF = (cpf) => {
                 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                    // Redirect to login page
-                    // window.location.href = 'login.html';
-                    
-                    // For demo, reset the form
+
                     setTimeout(() => {
                         window.location.reload();
                     }, 1000);
@@ -1194,7 +1184,7 @@ const validateCPF = (cpf) => {
         }
     });
 
-    // Toggle password visibility
+
     togglePassword.addEventListener('click', () => {
         const senha = document.getElementById('senha');
         const icon = togglePassword.querySelector('i');
@@ -1225,12 +1215,12 @@ const validateCPF = (cpf) => {
         }
     });
 
-    // Password strength
+
     document.getElementById('senha').addEventListener('input', function() {
         updatePasswordStrength(this.value);
     });
 
-    // Input formatters
+  
     document.getElementById('cpf').addEventListener('input', function() {
         this.value = formatCPF(this.value);
     });
@@ -1243,10 +1233,9 @@ const validateCPF = (cpf) => {
         this.value = formatCEP(this.value);
     });
 
-    // CEP lookup
+   
     document.getElementById('cep').addEventListener('blur', lookupCEP);
 
-    // Initialize
     updateProgress();
 });
 </script>
